@@ -1,0 +1,23 @@
+package br.ufla.gac106.s2022_2.Bug_killers.Factory;
+
+import br.ufla.gac106.s2022_2.Bug_killers.Model.*;
+
+public class CelebridadeFactory {
+
+    public static Celebridade criarCelebridade(String tipo, String nome, String resumo, int idade, String sexo, String programa, String emissora, String estilo, String qntMusica) {
+        if (tipo.equalsIgnoreCase("apresentador")) {
+            return new Apresentador(nome, resumo, idade, sexo, programa, emissora);
+        } else if (tipo.equalsIgnoreCase("cantor")) {
+            return new Cantor(nome, resumo, idade, sexo, estilo, qntMusica);
+        } else {
+            throw new IllegalArgumentException("Tipo de celebridade inválido: " + tipo);
+        }
+    }
+}
+
+
+
+
+//Celebridade apresentador = CelebridadeFactory.criarCelebridade("apresentador", "João", "Resumo do João", 35, "Masculino", "Programa do João", "Emissora A", null, null);
+
+//Celebridade cantor = CelebridadeFactory.criarCelebridade("cantor", "Maria", "Resumo da Maria", 28, "Feminino", null, null, "Pop", "10 músicas");
